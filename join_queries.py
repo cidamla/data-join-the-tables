@@ -1,4 +1,3 @@
-# pylint:disable=C0111,C0103
 import sqlite3
 
 conn = sqlite3.connect('/Users/damlacidamkartal/code/cidamla/data-join-the-tables/data/ecommerce.sqlite')
@@ -23,14 +22,15 @@ def spent_per_customer(db):
     db.execute(query)
     results = db.fetchall()
     return results
-    '''return the total amount spent per customer ordered by ascending total
-    amount (to 2 decimal places)
-    Exemple :
-        Jean   |   100
-        Marc   |   110
-        Simon  |   432
-        ...
-    '''
+
+'''return the total amount spent per customer ordered by ascending total amount (to 2 decimal places)
+Example :
+    Jean   |   100
+    Marc   |   110
+    Simon  |   432
+    ...'''
+
+
 def best_employee(db): ####
     query = '''SELECT e.FirstName, e.LastName, SUM(od.Quantity*od.UnitPrice) as c
             FROM Orders AS o
@@ -58,4 +58,3 @@ def orders_per_customer(db):
     '''TO DO: return a list of tuples where each tupe contains the contactName
     of the customer and the number of orders they made (contactName,
     number_of_orders). Order the list by ascending number of orders'''
-#trial
